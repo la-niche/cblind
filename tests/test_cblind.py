@@ -1,7 +1,8 @@
 import matplotlib as mpl
+import pytest
+
 import cblind
 
-import pytest
 
 def test_cmap_registration():
     import cblind # noqa

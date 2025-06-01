@@ -23,12 +23,12 @@ repos:
   hooks:
   - id: codespell
 
-# - repo: https://github.com/astral-sh/ruff-pre-commit
-#   rev: v0.11.10
-#   hooks:
-#   - id: ruff-format
-#   - id: ruff-check
-#    args: [--fix, --show-fixes]
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.11.10
+  hooks:
+  #- id: ruff-format
+  - id: ruff-check
+    args: [--fix, --show-fixes]
 
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: v2.14.0

@@ -28,8 +28,33 @@ content-type = "text/markdown"
 [project.urls]
 Homepage = "https://github.com/volodia99/cblind"
 
-
 [dependency-groups]
 test = [
     "pytest>=6.1.0",
 ]
+
+[tool.ruff.lint]
+exclude = [
+    "*__init__.py",
+    "from_simulation.py", # deprecated module
+]
+ignore = [
+    "E501",
+    "PTH123", # `open()` should be replaced by `Path.open()`
+]
+select = [
+    "E",
+    "F",
+    "W",
+    "ARG", # flake8-unused-arguments
+    "C4",  # flake8-comprehensions
+    "PTH", # flake8-use-pathlib
+    "B",   # flake8-bugbear
+    "YTT", # flake8-2020
+    "I",   # isort
+    "UP",  # pyupgrade
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["nonos"]
