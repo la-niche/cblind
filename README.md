@@ -1,10 +1,10 @@
 # cblind
 [![PyPI](https://img.shields.io/pypi/v/cblind)](https://pypi.org/project/cblind/)
 
-A colorblind-friendly python module that allows color choice for plotting multiple curves  
-Works only with python $\geq$ 3.7  
-8 colormaps are now available to map 2D fields  
-Authors: Gaylor Wafflard-Fernandez, Clément Robert  
+A colorblind-friendly python module that allows color choice for plotting multiple curves
+Works only with python $\geq$ 3.7
+8 colormaps are now available to map 2D fields
+Authors: Gaylor Wafflard-Fernandez, Clément Robert
 Author-email: gaylor.wafflard@univ-grenoble-alpes.fr
 
 ## Installation
@@ -23,7 +23,7 @@ import cblind as cb
 
 ## Usage for plotting
 
-10 palette functions to plot curves are available for now in the Colorplots class, with the corresponding test plotting functions.  
+10 palette functions to plot curves are available for now in the Colorplots class, with the corresponding test plotting functions.
 
 ### cblind
 
@@ -31,7 +31,7 @@ import cblind as cb
 color, linestyle = cb.Colorplots().cblind(nb_of_plots)
 ```
 
-from 1 to 12 plots [DISTINCT COLORS]. For more than 12 plots, the linestyle is changed.  
+from 1 to 12 plots [DISTINCT COLORS]. For more than 12 plots, the linestyle is changed.
 
 ```python
 cb.test_cblind(nb_of_plots)
@@ -45,7 +45,7 @@ cb.test_cblind(nb_of_plots)
 color, linestyle = cb.Colorplots().contrast(nb_of_plots)
 ```
 
-for less than 4 contrast plots [DISTINCT COLORS]. For more than 12 plots, the linestyle is changed.  
+for less than 4 contrast plots [DISTINCT COLORS]. For more than 12 plots, the linestyle is changed.
 
 ```python
 cb.test_contrast(nb_of_plots)
@@ -59,7 +59,7 @@ cb.test_contrast(nb_of_plots)
 color, linestyle = cb.Colorplots().huescale(nb_of_plots, *option)
 ```
 
-from 1 to 9 plots [SEQUENTIAL DATA]. With option "blue","bluegreen","green", "gold","brown","rose","purple" for less than 3 plots, otherwise ocherscale.  
+from 1 to 9 plots [SEQUENTIAL DATA]. With option "blue","bluegreen","green", "gold","brown","rose","purple" for less than 3 plots, otherwise ocherscale.
 
 ```python
 cb.test_huescale(nb_of_plots, *option)
@@ -73,7 +73,7 @@ cb.test_huescale(nb_of_plots, *option)
 color, linestyle = cb.Colorplots().rbscale(nb_of_plots)
 ```
 
-from 3 to 11 plots [DIVERGING DATA].  
+from 3 to 11 plots [DIVERGING DATA].
 
 ```python
 cb.test_rbscale(nb_of_plots)
@@ -87,7 +87,7 @@ cb.test_rbscale(nb_of_plots)
 color, linestyle = cb.Colorplots().rainbow(nb_of_plots)
 ```
 
-from 4 to 12 plots [RAINBOW SCHEME].  
+from 4 to 12 plots [RAINBOW SCHEME].
 
 ```python
 cb.test_rainbow(nb_of_plots)
@@ -101,7 +101,7 @@ cb.test_rainbow(nb_of_plots)
 color, linestyle = cb.Colorplots().extreme_rainbow(nb_of_plots)
 ```
 
-from 1 to 34 plots [RAINBOW SCHEME].  
+from 1 to 34 plots [RAINBOW SCHEME].
 
 ```python
 cb.test_extreme_rainbow(nb_of_plots)
@@ -115,7 +115,7 @@ cb.test_extreme_rainbow(nb_of_plots)
 color, linestyle = cb.Colorplots().solstice(nb_of_plots)
 ```
 
-for less than 11 plots [DIVERGING DATA]  
+for less than 11 plots [DIVERGING DATA]
 
 ```python
 cb.test_solstice(nb_of_plots)
@@ -129,7 +129,7 @@ cb.test_solstice(nb_of_plots)
 color, linestyle = cb.Colorplots().bird(nb_of_plots)
 ```
 
-for less than 9 plots [DIVERGING DATA]  
+for less than 9 plots [DIVERGING DATA]
 
 ```python
 cb.test_bird(nb_of_plots)
@@ -143,7 +143,7 @@ cb.test_bird(nb_of_plots)
 color, linestyle = cb.Colorplots().pregunta(nb_of_plots)
 ```
 
-for less than 9 plots [DIVERGING DATA]  
+for less than 9 plots [DIVERGING DATA]
 
 ```python
 cb.test_pregunta(nb_of_plots)
@@ -167,14 +167,14 @@ cb.test_monocolor(nb_of_plots, *option)
 
 ## Usage for colormaps
 
-8 cblind palettes are available for now : "cb.rbscale", "cb.rainbow", "cb.extreme_rainbow", "cb.huescale", 
-"cb.solstice", "cb.bird", "cb.pregunta", "cb.iris", but also all colormaps from matplotlib + "\_r" variants for reverse colormaps.  
+8 cblind palettes are available for now : "cb.rbscale", "cb.rainbow", "cb.extreme_rainbow", "cb.huescale",
+"cb.solstice", "cb.bird", "cb.pregunta", "cb.iris", but also all colormaps from matplotlib + "\_r" variants for reverse colormaps.
 
 ```python
 cmap = cb.cbmap(palette, nbin)
 ```
 
-The `nbin` argument is used to discretize the colormaps.  
+The `nbin` argument is used to discretize the colormaps.
 
 ![colormaps](https://github.com/Volodia99/cblind/raw/master/imgs/colormaps.png)
 
@@ -203,6 +203,6 @@ plt.show()
 cb.mapping(fig,ax,data2d,extent,palette=palette,nbin=nbin)
 ```
 
-**REFERENCE**  
-Paul Tol. 2012. "Colour Schemes." SRON Technical Note, SRON/EPS/TN/09-002.  
+**REFERENCE**
+Paul Tol. 2012. "Colour Schemes." SRON Technical Note, SRON/EPS/TN/09-002.
 https://personal.sron.nl/~pault/data/colourschemes.pdf

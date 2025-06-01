@@ -32,71 +32,71 @@ STYLES = {
 }
 
 c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29 = (
-    '#E8ECFB', 
-    '#D9CCE3', 
-    '#D1BBD7', 
-    '#CAACCB', 
-    '#BA8DB4', 
-    '#AE76A3', 
-    '#AA6F9E', 
-    '#994F88', 
-    '#882E72', 
-    '#1965B0', 
-    '#437DBF', 
-    '#5289C7', 
-    '#6195CF', 
-    '#7BAFDE', 
-    '#4EB265', 
-    '#90C987', 
-    '#CAE0AB', 
-    '#F7F056', 
-    '#F7CB45', 
-    '#F6C141', 
-    '#F4A736', 
-    '#F1932D', 
-    '#EE8026', 
-    '#E8601C', 
-    '#E65518', 
-    '#DC050C', 
-    '#A5170E', 
-    '#72190E', 
+    '#E8ECFB',
+    '#D9CCE3',
+    '#D1BBD7',
+    '#CAACCB',
+    '#BA8DB4',
+    '#AE76A3',
+    '#AA6F9E',
+    '#994F88',
+    '#882E72',
+    '#1965B0',
+    '#437DBF',
+    '#5289C7',
+    '#6195CF',
+    '#7BAFDE',
+    '#4EB265',
+    '#90C987',
+    '#CAE0AB',
+    '#F7F056',
+    '#F7CB45',
+    '#F6C141',
+    '#F4A736',
+    '#F1932D',
+    '#EE8026',
+    '#E8601C',
+    '#E65518',
+    '#DC050C',
+    '#A5170E',
+    '#72190E',
     '#42150A',
 )
 
 d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,d32,d33,d34 = (
-    '#E8ECFB', 
-    '#DDD8EF', 
-    '#D1C1E1', 
-    '#C3A8D1', 
-    '#B58FC2', 
-    '#A778B4', 
-    '#9B62A7', 
-    '#8C4E99', 
-    '#6F4C9B', 
-    '#6059A9', 
-    '#5568B8', 
-    '#4E79C5', 
-    '#4D8AC6', 
-    '#4E96BC', 
-    '#549EB3', 
-    '#59A5A9', 
-    '#60AB9E', 
-    '#69B190', 
-    '#77B77D', 
-    '#8CBC68', 
-    '#A6BE54', 
-    '#BEBC48', 
-    '#D1B541', 
-    '#DDAA3C', 
-    '#E49C39', 
-    '#E78C35', 
-    '#E67932', 
-    '#E4632D', 
-    '#DF4828', 
-    '#DA2222', 
-    '#B8221E', 
-    '#95211B', 
-    '#721E17', 
+    '#E8ECFB',
+    '#DDD8EF',
+    '#D1C1E1',
+    '#C3A8D1',
+    '#B58FC2',
+    '#A778B4',
+    '#9B62A7',
+    '#8C4E99',
+    '#6F4C9B',
+    '#6059A9',
+    '#5568B8',
+    '#4E79C5',
+    '#4D8AC6',
+    '#4E96BC',
+    '#549EB3',
+    '#59A5A9',
+    '#60AB9E',
+    '#69B190',
+    '#77B77D',
+    '#8CBC68',
+    '#A6BE54',
+    '#BEBC48',
+    '#D1B541',
+    '#DDAA3C',
+    '#E49C39',
+    '#E78C35',
+    '#E67932',
+    '#E4632D',
+    '#DF4828',
+    '#DA2222',
+    '#B8221E',
+    '#95211B',
+    '#721E17',
     '#521A13',
 )
 
@@ -413,18 +413,18 @@ class Colorplots:
 
         if printing in possible_args:
             stylescheme = [
-                STYLES["solid"], 
-                STYLES["dashed"], 
-                STYLES["dotted"], 
-                STYLES["dashdotted"], 
-                STYLES["dashdotdotted"], 
-                STYLES["densely_dashed"], 
-                STYLES["densely_dotted"], 
-                STYLES["densely_dashdotted"], 
-                STYLES["densely_dashdotdotted"], 
-                STYLES["loosely_dashed"], 
-                STYLES["loosely_dotted"], 
-                STYLES["loosely_dashdotted"], 
+                STYLES["solid"],
+                STYLES["dashed"],
+                STYLES["dotted"],
+                STYLES["dashdotted"],
+                STYLES["dashdotdotted"],
+                STYLES["densely_dashed"],
+                STYLES["densely_dotted"],
+                STYLES["densely_dashdotted"],
+                STYLES["densely_dashdotdotted"],
+                STYLES["loosely_dashed"],
+                STYLES["loosely_dotted"],
+                STYLES["loosely_dashdotted"],
                 STYLES["loosely_dashdotdotted"],
             ]
             if(ncurves>13):
@@ -444,19 +444,19 @@ def reversed_cmap(cmap, name = 'my_cmap_r', nbin=None):
     )
     if nbin is None:
         nbin=256
-    reverse = []                  
-    k = []                          
+    reverse = []
+    k = []
 
-    for key in cmap._segmentdata:    
+    for key in cmap._segmentdata:
         k.append(key)
         channel = cmap._segmentdata[key]
         data = []
-        for t in channel:                    
-            data.append((1-t[0],t[2],t[1]))            
-        reverse.append(sorted(data))    
+        for t in channel:
+            data.append((1-t[0],t[2],t[1]))
+        reverse.append(sorted(data))
 
     LinearL = dict(zip(k,reverse))
-    my_cmap_r = mcolors.LinearSegmentedColormap(name, LinearL, N=nbin) 
+    my_cmap_r = mcolors.LinearSegmentedColormap(name, LinearL, N=nbin)
     return my_cmap_r
 
 
@@ -547,7 +547,7 @@ def cbmap(palette=None, nbin=256):
         import matplotlib.pyplot as plt
 
         return plt.get_cmap(palette, nbin)
-        
+
 
 def mapping(fig, ax, data2d, palette=None, nbin=None):
     if nbin is None:
@@ -556,7 +556,7 @@ def mapping(fig, ax, data2d, palette=None, nbin=None):
         import matplotlib.pyplot as plt
 
         cmap = plt.get_cmap(palette, nbin)
-    
+
     im=ax.imshow(data2d, cmap=cmap, aspect='auto')
     fig.colorbar(im)
 

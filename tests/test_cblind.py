@@ -12,4 +12,3 @@ def test_cmap_registration():
 def test_cbmap_deprecation():
     with pytest.deprecated_call():
         cblind.cbmap("cb.extreme_rainbow")
-
