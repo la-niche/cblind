@@ -26,12 +26,12 @@ jobs:
         - '3.13'
         include:
         - os: ubuntu-22.04
-          python-version: '3.7'
+          python-version: '3.9' # 3.9.0 is not available on this image
           pip-args: --constraint constraints/minimal_dependencies.txt
         - os: windows-latest
-          python-version: '3.7'
+          python-version: 3.9.0
         - os: macos-13
-          python-version: '3.7'
+          python-version: 3.9.0
 
     runs-on: ${{ matrix.os }}
     steps:
