@@ -1,0 +1,17 @@
+# python
+.venv
+*.egg-info
+dist
+__pycache__
+.pytest*
+.python-version
+.ipynb_checkpoints
+.coverage
+htmlcov
+
+# temp files
+*\#
+*~
+
+# mac-only
+.DS_Store
