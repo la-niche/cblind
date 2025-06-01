@@ -8,6 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "cblind"
+version = "2.3.1"
 source = { editable = "." }
 dependencies = [
     { name = "cycler" },

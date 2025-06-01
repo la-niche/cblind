@@ -1,17 +1,15 @@
 [build-system]
-requires = [
-    "setuptools>=61.2",
-]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=3.11,<4"]
+build-backend = "flit_core.buildapi"
 
 [project]
 name = "cblind"
+version = "2.3.1"
 description = "Color schemes for Python plots, from Paul Tol (2012)"
 authors = [
     { name = "G. Wafflard-Fernandez" },
 ]
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
 ]
@@ -21,33 +19,17 @@ dependencies = [
     "cycler>=0.10",
     "numpy>=1.19.3",
 ]
-dynamic = ["version"]
+license = { file = "LICENSE" }
 
 [project.readme]
 file = "README.md"
 content-type = "text/markdown"
 
-[project.license]
-text = "GPL-3.0"
-
 [project.urls]
 Homepage = "https://github.com/volodia99/cblind"
 
-
 [project.scripts]
 cblind = "cblind.cblind:cblind"
-
-[tool.setuptools]
-license-files = [
-    "LICENSE",
-]
-include-package-data = false
-
-[tool.setuptools.packages.find]
-namespaces = false
-
-[tool.setuptools.dynamic]
-version = {attr = "cblind.__version__.__version__"}
 
 [dependency-groups]
 test = [
