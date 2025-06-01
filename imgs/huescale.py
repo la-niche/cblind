@@ -1,3 +1,8 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+import cblind as cb
+
 nx=100
 x=np.linspace(0,5, nx)
 option = ["blue", "bluegreen", "green", "gold", "brown", "rose", "purple"]

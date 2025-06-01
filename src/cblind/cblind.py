@@ -1,13 +1,10 @@
 from math import erf
 from warnings import warn
 
-from cycler import cycler
-
-import numpy as np
 import matplotlib as mpl
-from matplotlib import colors as mcolors
-from matplotlib import colormaps as mcm
-
+import numpy as np
+from cycler import cycler
+from matplotlib import colormaps as mcm, colors as mcolors
 
 PALETTES = ("cb.rbscale", "cb.rainbow", "cb.huescale", "cb.solstice", "cb.bird", "cb.pregunta", "cb.iris", "cb.extreme_rainbow")
 PALETTES_FULL = (*PALETTES,*tuple([i+"_r" for i in PALETTES]))
