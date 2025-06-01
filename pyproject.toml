@@ -28,8 +28,6 @@ content-type = "text/markdown"
 [project.urls]
 Homepage = "https://github.com/volodia99/cblind"
 
-[project.scripts]
-cblind = "cblind.cblind:cblind"
 
 [dependency-groups]
 test = [
