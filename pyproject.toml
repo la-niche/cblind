@@ -33,6 +33,12 @@ test = [
     "pytest>=6.1.0",
 ]
 
+[tool.pytest.ini_options]
+addopts = "-ra"
+filterwarnings = [
+    "error",
+]
+
 [tool.ruff.lint]
 exclude = [
     "*__init__.py",
