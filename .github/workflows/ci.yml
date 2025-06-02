@@ -24,22 +24,35 @@ jobs:
         - windows-latest
         python-version:
         - '3.13'
+        label: ['']
         include:
         - os: ubuntu-22.04
           python-version: 3.9.0
           install-args: --resolution=lowest-direct
+        - os: ubuntu-latest
+          python-version: '3.13'
+          label: devdeps
         - os: windows-latest
           python-version: 3.9.0
         - os: macos-13
           python-version: 3.9.0
 
+    name: ${{ matrix.os }}-py${{ matrix.python-version }} ${{ matrix.label }}
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6.1.0
       with:
         python-version: ${{ matrix.python-version }}
+        enable-cache: ${{ matrix.label != 'devdeps' }}
         prune-cache: false
+
+    - name: Configure uv
+      if: ${{ matrix.label == 'devdeps' }}
+      run: |
+        echo "UV_PRERELEASE=allow" >> $GITHUB_ENV
+        echo "UV_INDEX=https://pypi.anaconda.org/scientific-python-nightly-wheels/simple" >> $GITHUB_ENV
+        echo "UV_INDEX_STRATEGY=unsafe-best-match" >> $GITHUB_ENV
 
     - name: Build
       run: |
