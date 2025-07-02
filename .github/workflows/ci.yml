@@ -54,6 +54,13 @@ jobs:
         echo "UV_INDEX=https://pypi.anaconda.org/scientific-python-nightly-wheels/simple" >> $GITHUB_ENV
         echo "UV_INDEX_STRATEGY=unsafe-best-match" >> $GITHUB_ENV
 
+    - if: ${{ matrix.label == 'devdeps' }}
+      run: |
+        uv lock --upgrade --no-build
+        # this additional step is needed as long as our requires-python
+        # (currently >=3.9) is lower than numpy's (currently >=3.11) or matplotlib's (currently >=3.10)
+        uv lock -P numpy -P matplotlib
+        uv sync --no-editable --group test
     - name: Build
       run: |
         uv sync --no-editable --group test ${{ matrix.install-args }}
