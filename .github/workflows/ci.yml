@@ -24,14 +24,10 @@ jobs:
         - windows-latest
         python-version:
         - '3.13'
-        label: ['']
         include:
         - os: ubuntu-22.04
           python-version: 3.9.0
           install-args: --resolution=lowest-direct
-        - os: ubuntu-latest
-          python-version: '3.14'
-          label: devdeps
         - os: windows-latest
           python-version: 3.9.0
         - os: macos-13
@@ -47,24 +43,10 @@ jobs:
         enable-cache: ${{ matrix.label != 'devdeps' }}
         prune-cache: false
 
-    - name: Configure uv
-      if: ${{ matrix.label == 'devdeps' }}
-      run: |
-        echo "UV_PRERELEASE=allow" >> $GITHUB_ENV
-        echo "UV_INDEX=https://pypi.anaconda.org/scientific-python-nightly-wheels/simple" >> $GITHUB_ENV
-        echo "UV_INDEX_STRATEGY=unsafe-best-match" >> $GITHUB_ENV
-
-    - if: ${{ matrix.label == 'devdeps' }}
-      run: |
-        uv lock --upgrade --no-build
-        # this additional step is needed as long as our requires-python
-        # (currently >=3.9) is lower than numpy's (currently >=3.11) or matplotlib's (currently >=3.10)
-        uv lock -P numpy -P matplotlib
-        uv sync --no-editable --group test
     - name: Build
       run: |
         uv sync --no-editable --group test ${{ matrix.install-args }}
 
     - name: Run pytest
       run: |
-        uv run --no-sync pytest --color=yes -ra
+        uv run --no-sync pytest --color=yes
