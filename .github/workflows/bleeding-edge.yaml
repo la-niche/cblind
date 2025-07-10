@@ -1,0 +1,59 @@
+name: CI (bleeding edge)
+# goals: check stability against
+# - dev version of crucial dependencies
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    paths:
+    - .github/workflows/bleeding-edge.yaml
+  schedule:
+    # run this every Wednesday at 3 am UTC
+  - cron: 0 3 * * 3
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+    name: Test nightly dependencies
+    timeout-minutes: 60
+
+    steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        fetch-depth: 0
+
+    - uses: astral-sh/setup-uv@bd01e18f51369d5a26f1651c3cb451d3417e3bba # v6.3.1
+      with:
+        python-version: '3.14'
+        enable-cache: false
+
+    - name: Configure uv
+      run: |
+        echo "UV_PRERELEASE=allow" >> $GITHUB_ENV
+        echo "UV_INDEX=https://pypi.anaconda.org/scientific-python-nightly-wheels/simple" >> $GITHUB_ENV
+        echo "UV_INDEX_STRATEGY=unsafe-best-match" >> $GITHUB_ENV
+
+    # using pip compile + pip lock to workaround limitations of universal locking
+    # in particular, this method is more reliable at ensuring we get nightly wheels
+    # instead of building stable versions from source
+    - name: Resolve and lock env
+      run: |
+        uv pip compile pyproject.toml \
+          --all-extras --group test \
+          --quiet \
+          -o pylock.toml
+
+    - name: Install env
+      run: |
+        uv venv
+        uv pip sync pylock.toml
+        uv pip install . --no-deps
+
+    - name: Run pytest
+      run: uv run --no-sync pytest --color=yes
