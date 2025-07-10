@@ -56,10 +56,7 @@ jobs:
 
     - if: ${{ matrix.label == 'devdeps' }}
       run: |
-        uv lock --upgrade --no-build
-        # this additional step is needed as long as our requires-python
-        # (currently >=3.9) is lower than numpy's (currently >=3.11) or matplotlib's (currently >=3.10)
-        uv lock -P numpy -P matplotlib
+        uv lock --upgrade -p "$UV_PYTHON"
         uv sync --no-editable --group test
     - name: Build
       run: |
