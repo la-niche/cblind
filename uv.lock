@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version >= '3.11'",
@@ -30,7 +30,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-test = [{ name = "pytest", specifier = ">=6.1.0" }]
+test = [{ name = "pytest", specifier = ">=7.0.0" }]
 
 [[package]]
 name = "colorama"
