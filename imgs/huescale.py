@@ -25,7 +25,7 @@ ax[0,0].set_title("ocherscale", fontsize=10, loc="right", font="monospace", colo
 ax[0,1].set_title(f"option = {option[0]}", fontsize=10, loc="right", font="monospace", color="k")
 ax[0,0].set_axis_off()
 ax[0,1].set_axis_off()
-for p, (axi,axj) in zip(range(1,8,2),ax[1:,:]):
+for p, (axi,axj) in zip(range(1,8,2),ax[1:,:], strict=True):
     ny = 3
     y=np.zeros((ny,nx), dtype=int)
     color, linestyle = cb.Colorplots().huescale(ny, option[p])

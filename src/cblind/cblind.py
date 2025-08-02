@@ -452,7 +452,7 @@ def reversed_cmap(cmap, name = 'my_cmap_r', nbin=None):
             data.append((1-t[0],t[2],t[1]))
         reverse.append(sorted(data))
 
-    LinearL = dict(zip(k,reverse))
+    LinearL = dict(zip(k, reverse, strict=True))
     my_cmap_r = mcolors.LinearSegmentedColormap(name, LinearL, N=nbin)
     return my_cmap_r
 

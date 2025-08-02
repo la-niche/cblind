@@ -10,14 +10,21 @@ authors = [
     { name = "G. Wafflard-Fernandez" },
 ]
 classifiers = [
+    "Framework :: Matplotlib",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering :: Visualization",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
-    "matplotlib>=3.5",
+    "matplotlib>=3.5.0",
     "cycler>=0.10",
-    "numpy>=1.19.3",
+    "numpy>=1.21.2",
 ]
 license = { file = "LICENSE" }
 
@@ -30,7 +37,7 @@ Homepage = "https://github.com/volodia99/cblind"
 
 [dependency-groups]
 test = [
-    "pytest>=6.1.0",
+    "pytest>=7.0.0",
 ]
 
 [tool.pytest.ini_options]
