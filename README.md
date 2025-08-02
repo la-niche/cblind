@@ -2,7 +2,6 @@
 [![PyPI](https://img.shields.io/pypi/v/cblind)](https://pypi.org/project/cblind/)
 
 A colorblind-friendly python module that allows color choice for plotting multiple curves
-Works only with python $\geq$ 3.9
 8 colormaps are now available to map 2D fields
 Authors: Gaylor Wafflard-Fernandez, Clément Robert
 Author-email: gaylor.wafflard@univ-grenoble-alpes.fr
