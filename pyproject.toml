@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "cblind"
-version = "2.3.1"
+version = "2.3.2" # keep in sync with CITATION.cff
 description = "Colorblind friendly colormaps and color cycles for matplotlib"
 authors = [
     { name = "G. Wafflard-Fernandez" },
@@ -33,7 +33,7 @@ file = "README.md"
 content-type = "text/markdown"
 
 [project.urls]
-Homepage = "https://github.com/volodia99/cblind"
+Homepage = "https://github.com/la-niche/cblind"
 
 [dependency-groups]
 test = [
@@ -49,7 +49,6 @@ filterwarnings = [
 [tool.ruff.lint]
 exclude = [
     "*__init__.py",
-    "from_simulation.py", # deprecated module
 ]
 ignore = [
     "E501",
@@ -70,4 +69,3 @@ select = [
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
-known-first-party = ["nonos"]
