@@ -1,5 +1,8 @@
 # cblind
 [![PyPI](https://img.shields.io/pypi/v/cblind)](https://pypi.org/project/cblind/)
+[![Supported Python Versions](https://img.shields.io/pypi/pyversions/cblind)](https://pypi.org/project/cblind/)
+[![Documentation Status](https://readthedocs.org/projects/cblind/badge/?version=latest)](https://cblind.readthedocs.io/en/latest/?badge=latest)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 
 A colorblind-friendly python module that allows color choice for plotting multiple curves
 8 colormaps are now available to map 2D fields
