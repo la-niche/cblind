@@ -37,11 +37,31 @@ Homepage = "https://github.com/la-niche/cblind"
 
 [dependency-groups]
 test = [
-    "pytest>=7.0.0",
+    "pytest>=9.0.0",
 ]
 
-[tool.pytest.ini_options]
-addopts = "-ra"
+[tool.uv]
+no-build-package = [
+    "numpy",
+    "matplotlib",
+    "pillow",
+    "contourpy",
+    "kiwisolver",
+]
+constraint-dependencies = [
+    # via matplotlib 3.5.0
+    "setuptools>=61.0.0",
+]
+
+build-constraint-dependencies = [
+    # via matplotlib 3.5.0
+    "setuptools>=61.0.0",
+]
+
+[tool.pytest]
+minversion = "9.0"
+strict = true
+addopts = ["-ra"]
 filterwarnings = [
     "error",
 ]
