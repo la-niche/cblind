@@ -27,20 +27,19 @@ jobs:
         include:
         - os: ubuntu-22.04
           python-version: 3.10.0
-          install-args: --resolution=lowest-direct
+          install-args: --resolution=lowest
         - os: windows-latest
           python-version: 3.10.0
         - os: macos-13
           python-version: 3.10.0
 
-    name: ${{ matrix.os }}-py${{ matrix.python-version }} ${{ matrix.label }}
+    name: ${{ matrix.os }}-py${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
     - uses: astral-sh/setup-uv@85856786d1ce8acfbcc2f13a5f3fbd6b938f9f41 # v7.1.2
       with:
         python-version: ${{ matrix.python-version }}
-        enable-cache: ${{ matrix.label != 'devdeps' }}
         prune-cache: false
 
     - name: Build
