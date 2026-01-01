@@ -30,7 +30,7 @@ jobs:
           install-args: --resolution=lowest
         - os: windows-latest
           python-version: 3.10.0
-        - os: macos-13
+        - os: macos-14
           python-version: 3.10.0
 
     name: ${{ matrix.os }}-py${{ matrix.python-version }}
