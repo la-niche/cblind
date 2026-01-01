@@ -3,7 +3,7 @@ updates:
 - package-ecosystem: github-actions
   directory: /.github/workflows
   schedule:
-    interval: quarterly
+    interval: semiannually
   cooldown:
     default-days: 7
   groups:
@@ -14,7 +14,7 @@ updates:
 - package-ecosystem: uv
   directory: /
   schedule:
-    interval: quarterly
+    interval: semiannually
   cooldown:
     default-days: 7
   groups:
