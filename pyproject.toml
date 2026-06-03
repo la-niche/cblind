@@ -12,7 +12,6 @@ authors = [
 classifiers = [
     "Framework :: Matplotlib",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -20,9 +19,9 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
     "Topic :: Scientific/Engineering :: Visualization",
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
-    "matplotlib>=3.5.0",
+    "matplotlib>=3.6.0",
     "cycler>=0.10",
     "numpy>=1.21.2",
 ]
@@ -47,15 +46,6 @@ no-build-package = [
     "pillow",
     "contourpy",
     "kiwisolver",
-]
-constraint-dependencies = [
-    # via matplotlib 3.5.0
-    "setuptools>=61.0.0",
-]
-
-build-constraint-dependencies = [
-    # via matplotlib 3.5.0
-    "setuptools>=61.0.0",
 ]
 
 [tool.pytest]
