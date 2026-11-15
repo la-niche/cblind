@@ -32,7 +32,7 @@ jobs:
           test-args: -Wdefault
         - os: windows-latest
           python-version: 3.11.0
-        - os: macos-14
+        - os: macos-15
           python-version: 3.11.0
 
     name: ${{ matrix.os }}-py${{ matrix.python-version }}
